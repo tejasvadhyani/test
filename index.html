@@ -15,25 +15,22 @@
   </style>
 </head>
 <body>
-  <div><button onclick="add()">Add</button><button onclick="remove()">Remove</button></div>
-  <div id="container">
-    <p id="first">
-      </p>
-  </div>
-</body>
+  <div><button onclick="returnData()">Return</button>
 <script>
-  var content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-  var counter = 0;
-  function add() {
-    var element = document.createElement('p');
-    element.innerHTML = content;
-    element.id = 'child' + counter++;
-    document.getElementById('container').appendChild(element);
-  }
-  function remove() {
-    if(counter > 0) {
-      var element = document.getElementById('child' + --counter);
-      element.parentNode.removeChild(element);
+  var obj = {
+    bankId: 1,
+    planId: 1,
+    bankName: 'HDFC Bank',
+    offerDesc: 'Rs. 3,633 @12% for 6 months',
+    cashbackAmount: 2122
+  };
+  var returnData = function() {
+    var returnData = JSON.stringify(obj);
+    console.log(returnData)
+    try {
+      Android.returnData(returnData);
+    } catch(e) {
+      // do nothing
     }
   }
 </script>

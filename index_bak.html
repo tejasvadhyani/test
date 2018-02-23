@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    button {
+      padding: 10px;
+      width: 100px;
+      border: 1px solid grey;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div><button onclick="add()">Add</button><button onclick="remove()">Remove</button></div>
+  <div id="container">
+    <p id="first">
+      </p>
+  </div>
+</body>
+<script>
+  var content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+  var counter = 0;
+  function add() {
+    var element = document.createElement('p');
+    element.innerHTML = content;
+    element.id = 'child' + counter++;
+    document.getElementById('container').appendChild(element);
+  }
+  function remove() {
+    if(counter > 0) {
+      var element = document.getElementById('child' + --counter);
+      element.parentNode.removeChild(element);
+    }
+  }
+</script>
+</html>
